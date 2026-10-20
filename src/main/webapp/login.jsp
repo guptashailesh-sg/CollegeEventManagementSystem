@@ -1,0 +1,8 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sign in | Campus Events</title><link rel="stylesheet" href="assets/app.css"></head>
+<body><main class="auth-wrap"><section class="brand-panel"><span class="eyebrow">COLLEGE LIFE, CONNECTED</span><h1>Every event starts with you.</h1><p>Discover campus events, register in a few steps, and keep your college calendar in one place.</p><div class="bubble">✦ &nbsp; Hackathons · Fests · Cultural events</div></section>
+<section class="auth-card"><div class="mark">CE</div><h2>Welcome back</h2><p class="muted">Sign in to your college events account.</p>
+<% if ("1".equals(request.getParameter("registered"))) { %><div class="notice success">Account created. You can sign in now.</div><% } %>
+<% if (request.getAttribute("error") != null) { %><div class="notice error"><%= request.getAttribute("error") %></div><% } %>
+<form method="post" action="login"><label>Email address</label><input type="email" name="email" required autocomplete="username" placeholder="you@college.edu"><label>Password</label><input type="password" name="password" required autocomplete="current-password" placeholder="Your password"><button class="primary" type="submit">Sign in <span>→</span></button></form>
+<p class="foot">New to campus events? <a href="register.jsp">Create a student account</a></p></section></main></body></html>
