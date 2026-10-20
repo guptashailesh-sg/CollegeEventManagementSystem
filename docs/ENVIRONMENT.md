@@ -22,4 +22,4 @@ Use only SQL features supported by MySQL 8.0. Test the schema on both MySQL 8.0 
 
 ## Build and delivery status
 
-Environment versions have been checked on the developer's Windows PC. Tomcat 10.1.61 responds on localhost. This file documents setup assumptions; it is not a claim that the application has already been implemented or tested.
+Environment versions have been checked on the developer's Windows PC. Tomcat 10.1.61 responds on localhost. The first application implementation is now committed. A GitHub Actions Maven build has been added; local database and browser workflow testing are still required before final delivery.
