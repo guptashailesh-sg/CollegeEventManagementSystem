@@ -8,10 +8,18 @@ public final class Db {
     private Db() {}
 
     public static Connection getConnection() throws SQLException {
-        String url = System.getenv().getOrDefault("CE_DB_URL",
-            "jdbc:mysql://localhost:3306/college_event_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Kolkata");
+        String url = System.getenv().getOrDefault(
+            "CE_DB_URL",
+            "jdbc:mysql://localhost:3306/college_event_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Kolkata"
+        );
         String user = System.getenv().getOrDefault("CE_DB_USER", "root");
-        String password = System.getenv().getOrDefault("CE_DB_PASSWORD", "");
+        String password = System.getenv("CE_DB_PASSWORD");
+
+        if (password == null || password.isBlank()) {
+            throw new SQLException(
+                "MySQL password is not configured. Set the CE_DB_PASSWORD environment variable before starting Tomcat."
+            );
+        }
 
         // Explicitly load Connector/J so driver discovery issues give a clear error.
         try {
