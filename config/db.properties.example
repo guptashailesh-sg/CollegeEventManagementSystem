@@ -1,0 +1,5 @@
+# Copy this file to db.properties and configure your own local values.
+# Never commit real credentials.
+db.url=jdbc:mysql://localhost:3306/college_event_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Kolkata
+db.username=YOUR_MYSQL_USERNAME
+db.password=CHANGE_ME
